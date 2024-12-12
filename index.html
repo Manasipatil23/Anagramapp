@@ -1,0 +1,61 @@
+<html>
+<head>
+<title>Anagram App</title>
+<style>
+*{font-size:50px;}
+body{background-color:lightblue;}
+</style>
+</head>
+<body>
+<center>
+<h1>Anagram App</h1>
+<form onsubmit = "check()">
+<input type ="text" id ="string1" placeholder="enter string 1"/>
+<br/> <br/>
+<input type ="text" id ="string2" placeholder="enter string 2"/>
+<br/> <br/>
+<input type ="submit" value ="Check"/>
+</form>
+<h2 id = "msg"/>
+<script>
+function check()
+{
+event.preventDefault();
+let string1 = document.getElementById("string1");
+let string2 = document.getElementById("string2");
+let msg = document.getElementById("msg");
+
+if(string1.value === "")
+{
+alert("string1 is empty");
+msg.innerHTML= "";
+string1.focus();
+return;
+}
+if(string2.value === "")
+{
+alert("string2 is empty");
+msg.innerHTML= "";
+string2.focus();
+return;
+}
+
+
+let org_s1 = string1.value;
+let sort_s1 = org_s1.split("").sort().join("");
+let org_s2 = string2.value;
+let sort_s2 = org_s2.split("").sort().join("");
+
+if(sort_s1 === sort_s2)
+{
+msg.innerHTML = "yes it is anagram"; 
+}
+else 
+{
+msg.innerHTML = "no it is not anagram";
+}
+}
+</script>
+</center>
+</body>
+</html>
